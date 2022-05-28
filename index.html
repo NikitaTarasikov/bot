@@ -446,10 +446,10 @@
 				</div>
 				<div class="text">
 					<div class="title">
-						Картошка
+						Картошка 1
 					</div>
 					<div class="price">
-						1 грн
+						<span>1</span> грн
 					</div>
 				</div>
 				<div>
@@ -838,10 +838,10 @@
 				</div>
 				<div class="text">
 					<div class="title">
-						Картошка
+						Картошка 2
 					</div>
 					<div class="price">
-						1 грн
+						<span>2</span> грн
 					</div>
 				</div>
 				<div>
@@ -1230,10 +1230,10 @@
 				</div>
 				<div class="text">
 					<div class="title">
-						Картошка
+						Картошка 3
 					</div>
 					<div class="price">
-						1 грн
+						<span>3</span> грн
 					</div>
 				</div>
 				<div>
@@ -1248,23 +1248,50 @@
 
 		tg.MainButton.text = "Changed Text"; //изменяем текст кнопки 
 		tg.MainButton.setText("Changed Text1"); //изменяем текст кнопки иначе
-		tg.MainButton.textColor = "#ffffff"; //изменяем цвет текста кнопки
-		tg.MainButton.color = "#ffc156"; //изменяем цвет бэкграунда кнопки
-		tg.MainButton.setParams({"color": "#f7f7f7"}); //так изменяются все параметры
+		tg.MainButton.textColor = "#000000"; //изменяем цвет текста кнопки
+		tg.MainButton.color = "#ffffff"; //изменяем цвет бэкграунда кнопки
+		tg.MainButton.setParams({"color": "#ffc156"}); //так изменяются все параметры
 
 		const addBtn = document.querySelectorAll('.add');
+		const card = document.querySelectorAll('.item');
+		const price = document.querySelectorAll('.price span');
+		const title = document.querySelectorAll('.title');
+		
+		//let priceAddArr =  Object.create(null);
 
-		for(let item of addBtn){
-			item.addEventListener('click', () => {
-					tg.expand();
-					if (tg.MainButton.isVisible){ //если кнопка показана 
-						tg.MainButton.hide() //скрываем кнопку 
-					}
-					else{ //иначе
-						tg.MainButton.show() //показываем 
-					}
+		addBtn.forEach(function(item1, i1){
+	
+				item1.addEventListener('click', () => {
+					title.forEach(function(item2, i2){
+						if(i1 == i2){
+							tg.expand();
+							tg.MainButton.show() 
+							tg.MainButton.setText(item2.innerText);
+						}
+				
+
+
+			//item1.addEventListener('click', () => {
+			//	price.forEach(function(item2, i2){
+			//		if(i1 == i2){
+			//			let href = i2;
+			//			let price = Number(item2.innerText);
+			//			priceAddArr[href] = price;
+			//			console.log(item2)
+						
+			//		}
+			//	})
+
+					//tg.expand();
+					//if (tg.MainButton.isVisible){ //если кнопка показана 
+					//	tg.MainButton.hide() //скрываем кнопку 
+					//}
+					//else{ //иначе
+					//	tg.MainButton.show() //показываем 
+					//}
 			})
-		}
+		})
+	})
 		
 	</script>
 </body>
