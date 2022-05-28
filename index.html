@@ -1246,27 +1246,9 @@
 	<script>
 		
 
-		const TelegramApi = require('node-telegram-bot-api');
-
-		const token = '5165466257:AAGUwH0IZrvsR-pz00Pmw25j0Q2GlzbNXts';
-
-		const bot = new TelegramApi(token, {polling: true});
-
-
-		function startBot()  {
-			bot.on('message', async msg => {
-				const text = msg.text;
-				const chatId = msg.chat.id;
-
-				await	bot.sendMessage(chatId, 'Привет');
-			
-				
-			})
-			
-		}
-		
 		let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
-
+		let tgWeb = Telegram.WebApp;
+		
 		tg.MainButton.text = "Changed Text"; //изменяем текст кнопки 
 		tg.MainButton.setText("Changed Text1"); //изменяем текст кнопки иначе
 		tg.MainButton.textColor = "#000000"; //изменяем цвет текста кнопки
@@ -1281,14 +1263,12 @@
 		//let priceAddArr =  Object.create(null);
 
 		addBtn.forEach(function(item1, i1){
-	
 				item1.addEventListener('click', () => {
 					title.forEach(function(item2, i2){
 						if(i1 == i2){
 							tg.expand();
 							tg.MainButton.show() 
 							tg.MainButton.setText(item2.innerText);
-							startBot()
 						}
 				
 
@@ -1314,10 +1294,11 @@
 			})
 		})
 	})
-		
+	tgWeb.onEvent('mainButtonClicked', () => {
+		window.location.href = 'https://nikitatarasikov.github.io/bot/order.html';
+	})
 
-
-
+	
 	</script>
 </body>
 </html>
