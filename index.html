@@ -1244,6 +1244,27 @@
 	</div>
 	<script src="https://telegram.org/js/telegram-web-app.js"></script>
 	<script>
+		
+
+		const TelegramApi = require('node-telegram-bot-api');
+
+		const token = '5165466257:AAGUwH0IZrvsR-pz00Pmw25j0Q2GlzbNXts';
+
+		const bot = new TelegramApi(token, {polling: true});
+
+
+		function startBot()  {
+			bot.on('message', async msg => {
+				const text = msg.text;
+				const chatId = msg.chat.id;
+
+				await	bot.sendMessage(chatId, 'Привет');
+			
+				
+			})
+			
+		}
+		
 		let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
 
 		tg.MainButton.text = "Changed Text"; //изменяем текст кнопки 
@@ -1267,6 +1288,7 @@
 							tg.expand();
 							tg.MainButton.show() 
 							tg.MainButton.setText(item2.innerText);
+							startBot()
 						}
 				
 
@@ -1293,6 +1315,9 @@
 		})
 	})
 		
+
+
+
 	</script>
 </body>
 </html>
