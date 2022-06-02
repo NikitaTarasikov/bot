@@ -91,6 +91,7 @@
 		}
 		.order-inner__item-text h2 .num{
 			margin-left: 10px;
+			color:#ffc156;
 		}
 		.order-inner__item-text p{
 			margin: 10px 0 0 0;
@@ -136,8 +137,14 @@
 				max-width: 50%;
 			}
 		}
+		.user-id{
+			color:#ffc156;
+		}
 	</style>
 	<div class="container">
+		<div class="user-id">
+
+		</div>
 		<div class="inner">
 			<div class="item">
 				<div class="img">
@@ -180,7 +187,7 @@
 						Картошка 3
 					</div>
 					<div class="price">
-						<span>3</span> грн
+						<span>1</span> грн
 					</div>
 				</div>
 				<div>
@@ -282,10 +289,13 @@
 	})
 
 	const order = document.querySelector('.order');
+	const userIdTag = document.querySelector('.user-id');
+	const userId = tg.initDataUnsafe.user.id;
 
 	tgWeb.onEvent('mainButtonClicked', () => {
 		tg.expand();
 		order.classList.remove('active')
+		userIdTag.innerText = userId;
 	})
 
 	
