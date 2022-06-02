@@ -187,7 +187,7 @@
 						Картошка 3
 					</div>
 					<div class="price">
-						<span>1</span> грн
+						<span>3</span> грн
 					</div>
 				</div>
 				<div>
@@ -295,7 +295,8 @@
 	tgWeb.onEvent('mainButtonClicked', () => {
 		tg.expand();
 		order.classList.remove('active')
-		userIdTag.innerText = userId;
+
+		window.open('https://api.telegram.org/bot5165466257:AAGUwH0IZrvsR-pz00Pmw25j0Q2GlzbNXts/sendMessage?chat_id='+userId+'&text=заказномер1');
 	})
 
 	
